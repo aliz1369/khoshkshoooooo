@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl"
+    android:background="@drawable/login_background"
+    >
+
+    <ImageView
+        android:layout_width="196dp"
+        android:layout_height="180dp"
+        app:srcCompat="@drawable/ic_recieve_sms"
+        android:id="@+id/imageView"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="60dp"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageView"
+        android:text="اعتبار سنجی"
+        android:textSize="40dp"
+        android:textColor="#ffff"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/textView4"/>
+
+    <TextView
+        android:text="یک کد ۵ رقمی به شماره ۰۹۱۲۳۴۵۶۷۸۹ ارسال شده است. برای ورود آن راوارد کنید."
+        android:textSize="15dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:id="@+id/textView2"
+        android:layout_below="@id/textView4"
+        android:textColor="#FFF"
+        android:paddingRight="15dp"
+        android:paddingLeft="15dp"
+        android:layout_marginTop="10dp"/>
+
+
+    <EditText
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:inputType="numberPassword"
+        android:hint="کد"
+        android:textColorHint="#ffff"
+        android:textAlignment="center"
+        android:background="@null"
+        android:ems="10"
+        android:id="@+id/editText"
+        android:layout_below="@id/textView2"
+        android:singleLine="true"
+        android:layout_marginTop="98dp"
+        android:textColor="#ffffff"
+        android:drawableRight="@drawable/ic_passcode"
+        android:layout_centerHorizontal="true"
+        android:maxLength="11"/>
+    <View
+        android:id="@+id/UnderLine"
+        android:layout_width="250dp"
+        android:layout_height="1dp"
+        android:layout_below="@+id/editText"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="2dp"
+        android:background="#ffff" />
+
+    <Button
+        android:text="تایید"
+        android:textSize="30dp"
+        android:textColor="@color/loginbg"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/acceptbtn"
+        android:layout_below="@id/editText"
+        android:layout_marginTop="50dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/loginbtn"/>
+
+</RelativeLayout>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="login_btn_width_small">188dp</dimen>
+    <dimen name="login_btn_width_medium">250dp</dimen>
+    <dimen name="login_btn_width_large">375dp</dimen>
+    <dimen name="login_btn_width_xlarge">500dp</dimen>
+</resources>
