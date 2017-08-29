@@ -1,36 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#60a0ca">
-    <com.kofigyan.stateprogressbar.StateProgressBar
-        android:layout_marginTop="80dp"
-        android:id="@+id/your_state_progress_bar_id"
-        android:layout_width="wrap_content"
+    android:layoutDirection="rtl">
+    <TextView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:spb_currentStateNumber="one"
-        app:spb_maxStateNumber="four"
-        app:spb_stateBackgroundColor="#303f9f"
-        app:spb_stateForegroundColor="#ffffff"
-        app:spb_animateToCurrentProgressState="true"
-        app:spb_checkStateCompleted="false"
-        app:spb_stateNumberBackgroundColor="@android:color/transparent"
-        app:spb_stateNumberForegroundColor="@android:color/transparent"
-        app:spb_stateDescriptionColor="@android:color/transparent"
-        app:spb_currentStateDescriptionColor="@android:color/transparent"
+        android:text="کالا"
+        android:id="@+id/Main_tvStuff"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"
         />
-
-    <ImageView
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        app:srcCompat="@drawable/ic_basket"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/imageView2"
-        tools:ignore="ContentDescription" />
-
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Main_etSearch"
+        android:layout_marginRight="15dp"
+        android:layout_marginLeft="15dp"
+        android:layout_below="@+id/Main_tvStuff"
+        android:hint="جستجوی سریع کالا"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="خدمات"
+        android:id="@+id/Main_tvServices"
+        android:layout_below="@+id/Main_tvStuff"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="تعداد / قیمت"
+        android:id="@+id/Main_tvPrice"
+        android:layout_below="@+id/Main_tvServices"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="رنگ"
+        android:id="@+id/Main_tvColor"
+        android:layout_below="@+id/Main_tvPrice"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="توضیحات"
+        android:id="@+id/Main_tvDescription"
+        android:layout_below="@+id/Main_tvColor"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="5dp"/>
 
 </RelativeLayout>

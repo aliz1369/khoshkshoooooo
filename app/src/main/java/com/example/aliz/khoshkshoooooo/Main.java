@@ -6,7 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
 
-import com.kofigyan.stateprogressbar.StateProgressBar;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
@@ -28,25 +27,6 @@ public class Main extends AppCompatActivity {
         );
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        StateProgressBar stateProgressBar = (StateProgressBar) findViewById(R.id.your_state_progress_bar_id);
-        stateProgressBar.setStateDescriptionData(descriptionData);
-        imageView = (ImageView)findViewById(R.id.imageView2);
-
-        stateProgressBar.setCurrentStateNumber(StateProgressBar.StateNumber.THREE);
-        System.out.println(stateProgressBar.getCurrentStateNumber());
-        switch (stateProgressBar.getCurrentStateNumber()){
-            case(1):
-                imageView.setImageResource(R.drawable.ic_basket_filled);
-                break;
-            case(2):
-                imageView.setImageResource(R.drawable.ic_truckwait);
-                break;
-            case(3):
-                imageView.setImageResource(R.drawable.ic_recieve_sms);
-                break;
-            case(4):
-                imageView.setImageResource(R.drawable.ic_mobile);
-        }
     }
     @Override
     protected void attachBaseContext(Context newBase) {

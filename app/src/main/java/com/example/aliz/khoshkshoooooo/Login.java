@@ -26,11 +26,11 @@ public class Login extends AppCompatActivity {
                 .build()
         );
         setContentView(R.layout.login);
-        next = (Button)findViewById(R.id.button);
+        next = (Button)findViewById(R.id.login_button);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Login.this,SignUp.class);
+                Intent intent = new Intent(Login.this,Main.class);
                 startActivity(intent);
 
             }
