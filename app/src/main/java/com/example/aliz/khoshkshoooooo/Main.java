@@ -1,9 +1,12 @@
 package com.example.aliz.khoshkshoooooo;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 
@@ -15,9 +18,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
  */
 
 public class Main extends AppCompatActivity {
-    String[] descriptionData = {"Details", "Status", "Photo", "Confirm"};
-    ImageView imageView;
-
+    private Button addToBasket;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
@@ -26,8 +27,22 @@ public class Main extends AppCompatActivity {
                 .build()
         );
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setupUI();
+
     }
+
+    private void setupUI() {
+        setContentView(R.layout.main);
+        addToBasket = (Button)findViewById(R.id.Main_btAddToBasket);
+        addToBasket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Main.this,Basket.class);
+                startActivity(intent);
+            }
+        });
+    }
+
     @Override
     protected void attachBaseContext(Context newBase) {
         super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));

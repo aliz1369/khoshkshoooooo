@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_marginTop="10dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentRight="true"
+                android:layout_alignRight="@id/BasketCard_llContainer"
+                android:layout_alignBottom="@id/BasketCard_divider"
+                android:paddingBottom="5dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="sadasda"
+            android:id="@+id/BasketCard_tvType"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:textSize="25dp"
+            />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="sadasasdadda"
+                android:layout_below="@+id/BasketCard_tvType"
+                android:id="@+id/BasketCard_tvDetail"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:textSize="15dp"
+                android:textColor="@android:color/darker_gray"
+                />
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/BasketCard_llContainer"
+                android:layout_marginLeft="5dp"
+                android:paddingBottom="5dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/BasketCard_llQuantity">
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_add_black_24dp"/>
+                <EditText
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:inputType="number"/>
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:srcCompat="@drawable/ic_remove_black_24dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21000 تومان"
+                android:layout_marginRight="30dp"
+                android:layout_below="@id/BasketCard_llQuantity"
+                android:id="@+id/BasketCard_tvPrice"/>
+            </LinearLayout>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@android:color/darker_gray"
+                android:id="@+id/BasketCard_divider"
+                android:layout_below="@+id/BasketCard_llContainer"
+                android:layout_marginTop="5dp"/>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/Dry_clean"
+                android:layout_below="@id/BasketCard_divider"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="5dp"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/BasketCard_divider"
+                android:orientation="horizontal"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:paddingBottom="10dp">
+
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/staincleaning"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/BasketCard_ivStainCleaning"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/coloring"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/BasketCard_ivColoring"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/Dry_clean"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/BasketCard_ivDryCleaning"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/Wash"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/BasketCard_ivWash"/>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/Iron"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/BasketCard_ivIron"/>
+                </LinearLayout>
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+
+</RelativeLayout>

@@ -6,6 +6,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layoutDirection="rtl">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/Main_llStuff">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,39 +31,127 @@
         android:id="@+id/Main_etSearch"
         android:layout_marginRight="15dp"
         android:layout_marginLeft="15dp"
-        android:layout_below="@+id/Main_tvStuff"
         android:hint="جستجوی سریع کالا"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/Main_llServices"
+        android:layout_below="@+id/Main_llStuff">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="خدمات"
         android:id="@+id/Main_tvServices"
-        android:layout_below="@+id/Main_tvStuff"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"/>
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/Main_llPrice"
+        android:layout_below="@+id/Main_llServices">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="تعداد / قیمت"
         android:id="@+id/Main_tvPrice"
-        android:layout_below="@+id/Main_tvServices"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_add_black_24dp"/>
+            <EditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:inputType="number"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/ic_remove_black_24dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="21000 تومان"
+                android:layout_marginRight="30dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/Main_llColor"
+        android:layout_below="@+id/Main_llPrice">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="رنگ"
         android:id="@+id/Main_tvColor"
-        android:layout_below="@+id/Main_tvPrice"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"/>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp"/>
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp" />
+            <ImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="10dp"
+                android:layout_marginLeft="10dp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/Main_llDescription"
+        android:layout_below="@+id/Main_llColor">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="توضیحات"
         android:id="@+id/Main_tvDescription"
-        android:layout_below="@+id/Main_tvColor"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"/>
-
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </LinearLayout>
+        </RelativeLayout>
+    </ScrollView>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="اضافه کردن به سبد"
+        android:id="@+id/Main_btAddToBasket"/>
 </RelativeLayout>
