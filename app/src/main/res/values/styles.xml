@@ -14,4 +14,6 @@
         <!-- Custom Attr-->
         <item name="fontPath">IRANYekanMobileBold.ttf</item>
     </style>
+
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 </resources>

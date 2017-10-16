@@ -19,7 +19,7 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_alignParentRight="true"
-                android:layout_alignRight="@id/BillCard_llContainer"
+                android:layout_alignRight="@+id/BillCard_llContainer"
                 android:paddingBottom="5dp">
                 <TextView
                     android:layout_width="wrap_content"
@@ -99,21 +99,21 @@
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/Dry_clean"
+                    android:src="@drawable/dry_clean"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/BillCard_ivDryCleaning"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/Wash"
+                    android:src="@drawable/wash"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/BillCard_ivWash"/>
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/Iron"
+                    android:src="@drawable/iron"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/BillCard_ivIron"/>
             </LinearLayout>

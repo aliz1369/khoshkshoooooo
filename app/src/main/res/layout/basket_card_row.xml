@@ -19,8 +19,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_alignParentRight="true"
-                android:layout_alignRight="@id/BasketCard_llContainer"
-                android:layout_alignBottom="@id/BasketCard_divider"
+                android:layout_alignRight="@+id/BasketCard_llContainer"
+                android:layout_alignBottom="@+id/BasketCard_divider"
                 android:paddingBottom="5dp">
         <TextView
             android:layout_width="wrap_content"
@@ -89,7 +89,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/Dry_clean"
+                android:src="@drawable/dry_clean"
                 android:layout_below="@id/BasketCard_divider"
                 android:layout_marginRight="10dp"
                 android:layout_marginTop="5dp"/>
@@ -121,21 +121,21 @@
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/Dry_clean"
+                        android:src="@drawable/dry_clean"
                         android:layout_marginLeft="5dp"
                         android:id="@+id/BasketCard_ivDryCleaning"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/Wash"
+                        android:src="@drawable/wash"
                         android:layout_marginLeft="5dp"
                         android:id="@+id/BasketCard_ivWash"/>
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:src="@drawable/Iron"
+                        android:src="@drawable/iron"
                         android:layout_marginLeft="5dp"
                         android:id="@+id/BasketCard_ivIron"/>
                 </LinearLayout>

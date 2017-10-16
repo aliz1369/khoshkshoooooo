@@ -13,16 +13,17 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         >
-        <activity android:name=".Login" android:screenOrientation="portrait">
+        <activity android:name=".ui.Login" android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".Main" android:screenOrientation="portrait"></activity>
-        <activity android:name=".Basket" android:screenOrientation="portrait"></activity>
-        <activity android:name=".Customer" android:screenOrientation="portrait"></activity>
-        <activity android:name=".Bill" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.ClothesDetail" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.Basket" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.Customer" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.Bill" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.ChoiceClothesKind" android:screenOrientation="portrait"></activity>
 
     </application>
 
