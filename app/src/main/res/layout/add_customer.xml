@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:layoutDirection="rtl">
+<ImageView
+    android:layout_width="100dp"
+    android:layout_height="100dp"
+    android:layout_centerHorizontal="true"
+    android:id="@+id/AddCustomer_ivImage"
+    android:src="@drawable/profile_avatar"
+    android:layout_marginTop="30dp"/>
+    <EditText
+        android:id="@+id/AddCustomer_etFName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddCustomer_ivImage"
+        android:hint="نام"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+
+    <EditText
+        android:id="@+id/AddCustomer_etLName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddCustomer_etFName"
+        android:hint="نام خانوادگی"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:id="@+id/AddCustomer_etMobileNumber"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddCustomer_etLName"
+        android:hint="شماره موبایل"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:id="@+id/AddCustomer_etAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddCustomer_etMobileNumber"
+        android:hint="آدرس"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:id="@+id/AddCustomer_etEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddCustomer_etAddress"
+        android:hint="ایمیل"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+    <EditText
+        android:id="@+id/AddCustomer_etBirthDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/AddCustomer_etEmail"
+        android:hint="تاریخ تولد"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"/>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_alignParentBottom="true"
+    android:orientation="horizontal"
+    android:weightSum="1">
+
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:text="لغو"
+        android:id="@+id/AddCustomer_btCancel"
+        android:background="#7383ef"
+        android:textColor="@android:color/white"
+        />
+    <Button
+        android:layout_width="0dp"
+        android:layout_weight="0.5"
+        android:layout_height="wrap_content"
+        android:text="ذخیره"
+        android:id="@+id/AddCustomer_btSave"
+        android:background="#5d70f0"
+        android:textColor="@android:color/white"/>
+</LinearLayout>
+</RelativeLayout>
