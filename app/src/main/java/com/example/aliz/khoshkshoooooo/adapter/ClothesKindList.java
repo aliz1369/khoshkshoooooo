@@ -6,6 +6,14 @@ package com.example.aliz.khoshkshoooooo.adapter;
 
 public class ClothesKindList {
     public String KindName;
+    public String KindID;
+    public String getKindID() {
+        return KindID;
+    }
+
+    public void setKindID(String kindID) {
+        KindID = kindID;
+    }
 
     public String getKindName() {
         return KindName;

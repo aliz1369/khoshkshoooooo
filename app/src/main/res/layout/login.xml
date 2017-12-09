@@ -16,21 +16,20 @@
         android:tint="#0b73f9"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
     <TextView
+        android:id="@+id/login_tvLogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/login_ivLogo"
-        android:text="ورود"
-        android:textSize="30dp"
-        android:gravity="center"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/login_tvLogo"
-        />
+        android:gravity="center"
+        android:text="ورود"
+        android:textSize="30dp" />
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:hint="نام کاربری"
         android:gravity="start"
         android:textAlignment="textStart"
@@ -51,7 +50,6 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:inputType="number"
         android:hint="رمز عبور"
         android:gravity="start"
         android:textAlignment="textStart"

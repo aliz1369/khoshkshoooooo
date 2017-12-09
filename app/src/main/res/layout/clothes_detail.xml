@@ -70,7 +70,8 @@
         android:layout_marginTop="5dp"/>
         <android.support.v7.widget.RecyclerView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:id="@+id/ClothesDetail_rvServices"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -93,20 +94,29 @@
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_add_black_24dp"/>
+                app:srcCompat="@drawable/ic_add_black_24dp"
+                android:id="@+id/ClothesDetail_ibIncrease"/>
             <EditText
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:inputType="number"/>
+                android:inputType="number"
+                android:id="@+id/ClothesDetail_etNumber"/>
             <ImageButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_remove_black_24dp"/>
+                app:srcCompat="@drawable/ic_remove_black_24dp"
+                android:id="@+id/ClothesDetail_ibDecrease"/>
+            <EditText
+                android:layout_width="60dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:id="@+id/ClothesDetail_etPrice"
+                android:layout_marginRight="30dp"
+                android:hint="قیمت"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="21000 تومان"
-                android:layout_marginRight="30dp" />
+                android:text=" تومان" />
         </LinearLayout>
     </LinearLayout>
     <LinearLayout

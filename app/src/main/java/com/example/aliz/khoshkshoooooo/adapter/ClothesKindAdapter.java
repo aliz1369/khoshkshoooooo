@@ -16,17 +16,36 @@ import java.util.List;
 
 public class ClothesKindAdapter extends RecyclerView.Adapter<ClothesKindAdapter.MyViewHolder> {
     private List<ClothesKindList> clothesKinds;
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    private OnItemClickListener itemClickListener;
+    public interface OnItemClickListener{
+        void onItemClick(int position,String KindName);
+    }
+    public void setItemClickListener(OnItemClickListener itemClickListener){
+        this.itemClickListener = itemClickListener;
+    }
+    public ClothesKindAdapter(List<ClothesKindList> clothesKindLists) {
+        this.clothesKinds = clothesKindLists;
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView ClothesKind;
-        public MyViewHolder(View itemView) {
+        public MyViewHolder(View itemView, final OnItemClickListener onItemClickListener) {
             super(itemView);
-            ClothesKind = (TextView) itemView.findViewById(R.id.ClothesKind_tvName);
+            ClothesKind = itemView.findViewById(R.id.ClothesKind_tvName);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                        int position = getAdapterPosition();
+                        String Kind = ClothesKind.getText().toString();
+                        onItemClickListener.onItemClick(position,Kind);
+                }
+            });
         }
     }
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.choice_clothes_kind_card_row,parent,false);
-        return new  ClothesKindAdapter.MyViewHolder(view);
+        return new  ClothesKindAdapter.MyViewHolder(view,itemClickListener);
     }
 
     @Override
