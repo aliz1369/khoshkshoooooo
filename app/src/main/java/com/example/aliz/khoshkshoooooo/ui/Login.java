@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.aliz.khoshkshoooooo.R;
@@ -31,6 +32,7 @@ public class Login extends AppCompatActivity {
     Button next;
     EditText userName,password;
     SharedPreferences sharedPreferences;
+    ProgressBar load;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,10 +50,12 @@ public class Login extends AppCompatActivity {
         userName = (EditText)findViewById(R.id.login_etUsername);
         password = (EditText)findViewById(R.id.login_etPassword);
         next = (Button)findViewById(R.id.login_button);
+        load = (ProgressBar)findViewById(R.id.login_pb);
        // RequestMethod.Login("kamraneh","123456");
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                load.setVisibility(View.VISIBLE);
                 String username = userName.getText().toString();
                 String passdword = password.getText().toString();
                 //RequestMethod.Login(username,passdword);
@@ -66,24 +70,29 @@ public class Login extends AppCompatActivity {
                 new HttpUtility(){
                     @Override
                     public void onResponse(String response) {
+                        System.out.println("Ouuuuuuuuuuut"+response);
                         super.onResponse(response);
                         try {
                             JSONObject loginInfo = new JSONObject(response);
                             if(loginInfo.has("access_token")){
                                 String access_token = loginInfo.getString("access_token");
                                 String expire = loginInfo.getString(".expires");
+                                String role = loginInfo.getString("role");
                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                 editor.putString("access_token",access_token);
                                 editor.putString("expire_date",expire);
+                                editor.putString("role",role);
                                 editor.apply();
-                                Intent intent = new Intent(Login.this,ChoiceClothesKind.class);
+                                Intent intent = new Intent(Login.this,MainPage.class);
                                 startActivity(intent);
                             }
                             else {
                                 Toast.makeText(Login.this,"نام کاربری یا رمز عبور اشتباه می باشد.",Toast.LENGTH_LONG);
+                                load.setVisibility(View.INVISIBLE);
                             }
                         } catch (JSONException e) {
                             e.printStackTrace();
+                            load.setVisibility(View.INVISIBLE);
                         }
                     }
                 }.execute(httpLogin);

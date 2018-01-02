@@ -25,7 +25,8 @@
         <activity android:name=".ui.Bill" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.ChoiceClothesKind" android:screenOrientation="portrait"></activity>
         <activity android:name=".ui.Login" android:screenOrientation="portrait"></activity>
-
+        <activity android:name=".ui.MainPage" android:screenOrientation="portrait"></activity>
+        <activity android:name=".ui.AddCustomer" android:screenOrientation="portrait"></activity>
     </application>
 
 

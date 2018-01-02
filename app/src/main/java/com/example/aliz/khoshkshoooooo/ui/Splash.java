@@ -31,12 +31,6 @@ public class Splash extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-               /* sharedPreferences = getSharedPreferences("loginInfo",MODE_PRIVATE);
-                if(sharedPreferences.contains("access_token")){
-                    Intent intent = new Intent(Splash.this,ChoiceClothesKind.class);
-                    startActivity(intent);
-                    finish();
-                }else {*/
                     Intent intent = new Intent(Splash.this,Login.class);
                     startActivity(intent);
                     finish();

@@ -32,7 +32,7 @@ public class HttpUtility extends AsyncTask<HttpCall, String, String> {
             URL url = new URL(httpCall.getMethodtype() == HttpCall.GET ? httpCall.getUrl() + dataParams : httpCall.getUrl());
             urlConnection = (HttpURLConnection) url.openConnection();
             urlConnection.setRequestMethod(httpCall.getMethodtype() == HttpCall.GET ? "GET":"POST");
-            urlConnection.setRequestProperty("Content-Type", "application/json");
+            urlConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             urlConnection.setRequestProperty("Authorization",httpCall.getAuthorization());
             urlConnection.setReadTimeout(10000);
             urlConnection.setConnectTimeout(15000);
@@ -42,6 +42,7 @@ public class HttpUtility extends AsyncTask<HttpCall, String, String> {
                 writer.flush();
             }
             int responseCode = urlConnection.getResponseCode();
+            System.out.println("responseCode" + responseCode);
             if(responseCode == HttpURLConnection.HTTP_OK){
                 String line ;
                 BufferedReader br = new BufferedReader( new InputStreamReader(urlConnection.getInputStream()));
@@ -72,6 +73,7 @@ public class HttpUtility extends AsyncTask<HttpCall, String, String> {
     protected void onPostExecute(String s) {
         super.onPostExecute(s);
         onResponse(s);
+
     }
 
     public void onResponse(String response){
