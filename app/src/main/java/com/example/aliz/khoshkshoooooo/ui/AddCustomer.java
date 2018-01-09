@@ -72,12 +72,32 @@ public class AddCustomer extends AppCompatActivity {
                 httpAddCustomer.setAuthorization("Bearer "+ auth);
                 new HttpUtility(){
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(JSONObject response) {
                         super.onResponse(response);
                         System.out.println("outtttttt"+response);
+                        try {
+                            String responseCode = response.getString("responseCode");
+                            if(Integer.parseInt(responseCode)==200){
+                                Intent intent = new Intent(AddCustomer.this,Customer.class);
+                                startActivity(intent);
+                            }
+                            else{
+                                Toast.makeText(AddCustomer.this,"لطفا مشخصات را صحیح وارد کنید.",Toast.LENGTH_LONG);
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }.execute(httpAddCustomer);
         }
+        });
+        Cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AddCustomer.this,Customer.class);
+                startActivity(intent);
+            }
         });
             }
 }

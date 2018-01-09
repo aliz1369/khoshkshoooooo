@@ -2,11 +2,12 @@ package com.example.aliz.khoshkshoooooo.server;
 
 import android.os.AsyncTask;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
@@ -20,13 +21,14 @@ import java.util.Map;
  * Created by Al!Z on 10/29/2017.
  */
 
-public class HttpUtility extends AsyncTask<HttpCall, String, String> {
+public class HttpUtility extends AsyncTask<HttpCall, String, JSONObject> {
     private static final String UTF_8 = "UTF-8";
     @Override
-    protected String doInBackground(HttpCall... params) {
+    protected JSONObject doInBackground(HttpCall... params) {
         HttpURLConnection urlConnection = null;
         HttpCall httpCall = params[0];
         StringBuilder response = new StringBuilder();
+        JSONObject httpResponse = new JSONObject();
         try{
             String dataParams = getDataString(httpCall.getParams(), httpCall.getMethodtype());
             URL url = new URL(httpCall.getMethodtype() == HttpCall.GET ? httpCall.getUrl() + dataParams : httpCall.getUrl());
@@ -43,6 +45,7 @@ public class HttpUtility extends AsyncTask<HttpCall, String, String> {
             }
             int responseCode = urlConnection.getResponseCode();
             System.out.println("responseCode" + responseCode);
+            httpResponse.put("responseCode" , String.valueOf(responseCode));
             if(responseCode == HttpURLConnection.HTTP_OK){
                 String line ;
                 BufferedReader br = new BufferedReader( new InputStreamReader(urlConnection.getInputStream()));
@@ -63,20 +66,27 @@ public class HttpUtility extends AsyncTask<HttpCall, String, String> {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } finally {
             urlConnection.disconnect();
         }
-        return response.toString();
+        try {
+            httpResponse.put("responseJSON",response.toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return httpResponse;
     }
 
     @Override
-    protected void onPostExecute(String s) {
+    protected void onPostExecute(JSONObject s) {
         super.onPostExecute(s);
         onResponse(s);
 
     }
 
-    public void onResponse(String response){
+    public void onResponse(JSONObject response){
 
     }
 

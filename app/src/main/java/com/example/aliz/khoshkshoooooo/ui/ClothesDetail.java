@@ -1,10 +1,8 @@
 package com.example.aliz.khoshkshoooooo.ui;
 
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,7 +13,6 @@ import android.widget.ImageButton;
 
 
 import com.example.aliz.khoshkshoooooo.R;
-import com.example.aliz.khoshkshoooooo.adapter.ClothesKindList;
 import com.example.aliz.khoshkshoooooo.adapter.ServiceList;
 import com.example.aliz.khoshkshoooooo.adapter.ServiceListAdapter;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
@@ -30,7 +27,6 @@ import java.util.HashMap;
 import java.util.List;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
-import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 /**
  * Created by AliZ on 1/31/2017.
@@ -76,7 +72,7 @@ public class ClothesDetail extends AppCompatActivity {
         httpGetAllServices.setAuthorization("Bearer "+ auth);
         new HttpUtility(){
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONObject response) {
                 super.onResponse(response);
                 try {
                     JSONArray Services = new JSONArray(response);

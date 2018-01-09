@@ -76,7 +76,7 @@ public class ChoiceClothesKind extends AppCompatActivity {
         httpGetAllServices.setAuthorization("Bearer "+ auth);
         new HttpUtility(){
             @Override
-            public void onResponse(String response) {
+            public void onResponse(JSONObject response) {
                 super.onResponse(response);
                 try {
                     JSONArray Services = new JSONArray(response);

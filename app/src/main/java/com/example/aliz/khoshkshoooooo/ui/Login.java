@@ -14,7 +14,6 @@ import android.widget.Toast;
 import com.example.aliz.khoshkshoooooo.R;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
 import com.example.aliz.khoshkshoooooo.server.HttpUtility;
-import com.example.aliz.khoshkshoooooo.server.RequestMethod;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -69,11 +68,13 @@ public class Login extends AppCompatActivity {
                 httpLogin.setParams(params);
                 new HttpUtility(){
                     @Override
-                    public void onResponse(String response) {
-                        System.out.println("Ouuuuuuuuuuut"+response);
+                    public void onResponse(JSONObject response) {
+                        System.out.println("Ouuuuuuuuuuut" + response);
                         super.onResponse(response);
                         try {
-                            JSONObject loginInfo = new JSONObject(response);
+                            String logInfo = response.getString("responseJSON");
+                            JSONObject loginInfo = new JSONObject(logInfo);
+                            System.out.println("Ouuuuuuuuuuut" + logInfo);
                             if(loginInfo.has("access_token")){
                                 String access_token = loginInfo.getString("access_token");
                                 String expire = loginInfo.getString(".expires");
