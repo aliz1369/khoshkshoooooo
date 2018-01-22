@@ -1,10 +1,10 @@
-package com.example.aliz.khoshkshoooooo.adapter;
+package com.example.aliz.khoshkshoooooo.controller;
 
 /**
  * Created by Al!Z on 9/16/2017.
  */
 
-public class BasketList {
+public class BillList {
     public String Type;
     public String Detail;
     public String Amount;

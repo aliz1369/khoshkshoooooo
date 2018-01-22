@@ -12,7 +12,7 @@ import android.widget.ImageButton;
 
 import com.example.aliz.khoshkshoooooo.R;
 import com.example.aliz.khoshkshoooooo.adapter.ClothesKindAdapter;
-import com.example.aliz.khoshkshoooooo.adapter.ClothesKindList;
+import com.example.aliz.khoshkshoooooo.controller.ClothesKindList;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
 import com.example.aliz.khoshkshoooooo.server.HttpUtility;
 
@@ -58,7 +58,7 @@ public class ChoiceClothesKind extends AppCompatActivity {
             @Override
             public void onItemClick(int position, String KindName) {
                 Intent intent = new Intent(ChoiceClothesKind.this,ClothesDetail.class);
-                intent.putExtra("KindName",KindName);
+                intent.putExtra("KindId",clothesKindLists.get(position).getKindID());
                 startActivity(intent);
             }
         });
@@ -79,7 +79,8 @@ public class ChoiceClothesKind extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 super.onResponse(response);
                 try {
-                    JSONArray Services = new JSONArray(response);
+                    String ClothesKind = response.getString("responseJSON");
+                    JSONArray Services = new JSONArray(ClothesKind);
                     for(int i = 0;i<Services.length();i++){
                         kindList = new ClothesKindList();
                         JSONObject jsonObject = Services.getJSONObject(i);
@@ -91,7 +92,6 @@ public class ChoiceClothesKind extends AppCompatActivity {
                     e.printStackTrace();
                 }
                 updateListView();
-                System.out.println("kindddddd"+response);
             }
         }.execute(httpGetAllServices);
     }

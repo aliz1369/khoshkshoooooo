@@ -74,7 +74,6 @@ public class AddCustomer extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         super.onResponse(response);
-                        System.out.println("outtttttt"+response);
                         try {
                             String responseCode = response.getString("responseCode");
                             if(Integer.parseInt(responseCode)==200){

@@ -10,10 +10,11 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RadioButton;
 
 
 import com.example.aliz.khoshkshoooooo.R;
-import com.example.aliz.khoshkshoooooo.adapter.ServiceList;
+import com.example.aliz.khoshkshoooooo.controller.ServiceList;
 import com.example.aliz.khoshkshoooooo.adapter.ServiceListAdapter;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
 import com.example.aliz.khoshkshoooooo.server.HttpUtility;
@@ -33,9 +34,9 @@ import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
  */
 
 public class ClothesDetail extends AppCompatActivity {
-    private Button addToBasket;
+    private Button addToBasket,updatePrice;
     private RecyclerView services;
-    String KindName;
+    String KindId;
     SharedPreferences sharedPreferences;
     String auth;
     ServiceList serviceList;
@@ -44,6 +45,8 @@ public class ClothesDetail extends AppCompatActivity {
     ServiceListAdapter adapter;
     EditText Number;
     ImageButton Increase,Decrease;
+    String serviceId;
+    String clothesColor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
@@ -54,7 +57,7 @@ public class ClothesDetail extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         Bundle extras = getIntent().getExtras();
         if(extras!=null){
-            KindName = extras.getString("KindName");
+            KindId = extras.getString("KindId");
         }
         sharedPreferences = getSharedPreferences("loginInfo",MODE_PRIVATE);
         auth = sharedPreferences.getString("access_token","");
@@ -75,7 +78,8 @@ public class ClothesDetail extends AppCompatActivity {
             public void onResponse(JSONObject response) {
                 super.onResponse(response);
                 try {
-                    JSONArray Services = new JSONArray(response);
+                    String Service = response.getString("responseJSON");
+                    JSONArray Services = new JSONArray(Service);
                     for(int i = 0;i<Services.length();i++){
                         serviceList = new ServiceList();
                         JSONObject jsonObject = Services.getJSONObject(i);
@@ -99,8 +103,7 @@ public class ClothesDetail extends AppCompatActivity {
         adapter.setItemClickListener(new ServiceListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, String ServiceName) {
-
-                
+                serviceId = serviceLists.get(position).getServiceId();
             }
         });
         adapter.notifyDataSetChanged();
@@ -139,6 +142,40 @@ public class ClothesDetail extends AppCompatActivity {
                 Number.setText(num+"");
             }
         });
+        updatePrice = (Button) findViewById(R.id.ClothesDetail_btnUpdatePrice);
+        updatePrice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updatePrices();
+            }
+        });
+
+    }
+
+    private void updatePrices() {
+        HttpCall httpUpdatePrice = new HttpCall();
+        httpUpdatePrice.setMethodtype(HttpCall.POST);
+        httpUpdatePrice.setUrl("http://dry.dpark.ir/api/bill/GetPrice");
+        HashMap<String,String> params = new HashMap<>();
+        params.put("staff_id",KindId);
+        params.put("color_id",clothesColor);
+        params.put("staff_count",Number.getText().toString());
+        params.put("service_id",serviceId);
+    }
+    public void ChoiceClothesColor(View view){
+        boolean Checked =((RadioButton) view).isChecked();
+        switch (view.getId()){
+            case R.id.ClothesDetail_rbWhite:
+                    clothesColor = "1";
+                break;
+            case R.id.ClothesDetail_rbBlack:
+                    clothesColor = "2";
+                break;
+            case R.id.ClothesDetail_rbColor:
+                    clothesColor = "3";
+                break;
+
+        }
     }
 
 }

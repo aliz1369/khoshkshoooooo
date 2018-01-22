@@ -77,54 +77,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/ClothesDetail_llPrice"
-        android:layout_below="@+id/ClothesDetail_llServices">
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="تعداد / قیمت"
-        android:id="@+id/ClothesDetail_tvPrice"
-        android:layout_marginRight="10dp"
-        android:layout_marginTop="5dp"/>
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginRight="20dp">
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_add_black_24dp"
-                android:id="@+id/ClothesDetail_ibIncrease"/>
-            <EditText
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:id="@+id/ClothesDetail_etNumber"/>
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:srcCompat="@drawable/ic_remove_black_24dp"
-                android:id="@+id/ClothesDetail_ibDecrease"/>
-            <EditText
-                android:layout_width="60dp"
-                android:layout_height="wrap_content"
-                android:inputType="number"
-                android:id="@+id/ClothesDetail_etPrice"
-                android:layout_marginRight="30dp"
-                android:hint="قیمت"/>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text=" تومان" />
-        </LinearLayout>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
         android:id="@+id/ClothesDetail_llColor"
-        android:layout_below="@+id/ClothesDetail_llPrice">
+        android:layout_below="@+id/ClothesDetail_llServices">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -132,38 +86,98 @@
         android:id="@+id/ClothesDetail_tvColor"
         android:layout_marginRight="10dp"
         android:layout_marginTop="5dp"/>
-        <LinearLayout
+        <RadioGroup
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center">
-            <ImageButton
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:id="@+id/ClothesDetail_rgClothesColor">
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"/>
-            <ImageButton
+                android:layout_marginLeft="10dp"
+                android:id="@+id/ClothesDetail_rbWhite"
+                android:onClick="ChoiceClothesColor"/>
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp" />
-            <ImageButton
+                android:layout_marginLeft="10dp"
+                android:id="@+id/ClothesDetail_rbBlack"
+                android:background="@android:color/black"
+                android:onClick="ChoiceClothesColor"/>
+            <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp" />
-            <ImageButton
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp" />
-        </LinearLayout>
+                android:layout_marginLeft="10dp"
+                android:id="@+id/ClothesDetail_rbColor"
+                android:onClick="ChoiceClothesColor"/>
+        </RadioGroup>
     </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:id="@+id/ClothesDetail_llPrice"
+                android:layout_below="@+id/ClothesDetail_llColor">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="تعداد / قیمت"
+                    android:id="@+id/ClothesDetail_tvPrice"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="5dp"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp">
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_add_black_24dp"
+                        android:id="@+id/ClothesDetail_ibIncrease"/>
+                    <EditText
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:id="@+id/ClothesDetail_etNumber"/>
+                    <ImageButton
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:srcCompat="@drawable/ic_remove_black_24dp"
+                        android:id="@+id/ClothesDetail_ibDecrease"/>
+                    <TextView
+                        android:layout_width="60dp"
+                        android:layout_height="wrap_content"
+                        android:inputType="number"
+                        android:id="@+id/ClothesDetail_etPrice"
+                        android:layout_marginRight="30dp"
+                        android:hint="قیمت"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=" تومان" />
+                </LinearLayout>
+            </LinearLayout>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/ClothesDetail_btnUpdatePrice"
+                android:text="دریافت قیمت"
+                android:layout_below="@+id/ClothesDetail_llPrice"
+                android:layout_centerHorizontal="true"
+                />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:id="@+id/ClothesDetail_llDescription"
-        android:layout_below="@+id/ClothesDetail_llColor">
+        android:layout_below="@+id/ClothesDetail_btnUpdatePrice">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

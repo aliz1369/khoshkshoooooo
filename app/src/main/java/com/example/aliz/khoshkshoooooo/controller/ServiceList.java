@@ -1,4 +1,4 @@
-package com.example.aliz.khoshkshoooooo.adapter;
+package com.example.aliz.khoshkshoooooo.controller;
 
 /**
  * Created by Al!Z on 11/7/2017.

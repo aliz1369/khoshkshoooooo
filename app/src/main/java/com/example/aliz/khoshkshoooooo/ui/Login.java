@@ -74,7 +74,6 @@ public class Login extends AppCompatActivity {
                         try {
                             String logInfo = response.getString("responseJSON");
                             JSONObject loginInfo = new JSONObject(logInfo);
-                            System.out.println("Ouuuuuuuuuuut" + logInfo);
                             if(loginInfo.has("access_token")){
                                 String access_token = loginInfo.getString("access_token");
                                 String expire = loginInfo.getString(".expires");
