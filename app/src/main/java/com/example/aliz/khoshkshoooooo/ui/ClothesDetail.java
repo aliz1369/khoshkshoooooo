@@ -14,8 +14,10 @@ import android.widget.RadioButton;
 
 
 import com.example.aliz.khoshkshoooooo.R;
+import com.example.aliz.khoshkshoooooo.controller.CartList;
 import com.example.aliz.khoshkshoooooo.controller.ServiceList;
 import com.example.aliz.khoshkshoooooo.adapter.ServiceListAdapter;
+import com.example.aliz.khoshkshoooooo.database.App;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
 import com.example.aliz.khoshkshoooooo.server.HttpUtility;
 
@@ -116,8 +118,21 @@ public class ClothesDetail extends AppCompatActivity {
         addToBasket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(ClothesDetail.this,Basket.class);
-                startActivity(intent);
+                new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        List<CartList> lists = new ArrayList<>();
+                        CartList cartList = new CartList();
+                        cartList.setStuff(KindId);
+                        cartList.setColor(clothesColor);
+                        cartList.setOrderprice(" ");
+                        cartList.setOrderstatus("0");
+                        lists.add(cartList);
+                        App.get().getDB().cartDao().insertAll(lists);
+                        Intent intent = new Intent(ClothesDetail.this,Basket.class);
+                        startActivity(intent);
+                    }
+                }).start();
             }
         });
         services = (RecyclerView) findViewById(R.id.ClothesDetail_rvServices);
@@ -166,12 +181,15 @@ public class ClothesDetail extends AppCompatActivity {
         boolean Checked =((RadioButton) view).isChecked();
         switch (view.getId()){
             case R.id.ClothesDetail_rbWhite:
+                if(Checked)
                     clothesColor = "1";
                 break;
             case R.id.ClothesDetail_rbBlack:
+                if(Checked)
                     clothesColor = "2";
                 break;
             case R.id.ClothesDetail_rbColor:
+                if(Checked)
                     clothesColor = "3";
                 break;
 

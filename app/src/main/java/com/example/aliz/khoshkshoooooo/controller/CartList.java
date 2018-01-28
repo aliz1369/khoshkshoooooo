@@ -1,35 +1,67 @@
 package com.example.aliz.khoshkshoooooo.controller;
 
+import android.arch.persistence.room.ColumnInfo;
+import android.arch.persistence.room.Entity;
+import android.arch.persistence.room.PrimaryKey;
+
 /**
  * Created by AliZ on 1/19/2018.
  */
-
+@Entity
 public class CartList {
-    private int stuff;
-    private int color;
-    private int orderprice;
-    private int orderstatus;
+    @PrimaryKey(autoGenerate = true)
+    private int id;
 
-    public CartList(int stuff, int color, int orderprice, int orderstatus) {
-        this.stuff = stuff;
-        this.color = color;
-        this.orderprice = orderprice;
-        this.orderstatus = orderstatus;
+    @ColumnInfo(name = "stuff")
+    private String stuff;
+
+    @ColumnInfo(name = "color")
+    private String color;
+
+    @ColumnInfo(name = "price")
+    private String orderprice;
+
+    @ColumnInfo(name = "status")
+    private String orderstatus;
+
+
+    public int getId() {
+        return id;
     }
 
-    public int getStuff() {
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getStuff() {
         return stuff;
     }
 
-    public int getColor() {
+    public void setStuff(String stuff) {
+        this.stuff = stuff;
+    }
+
+    public String getColor() {
         return color;
     }
 
-    public int getOrderprice() {
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public String getOrderprice() {
         return orderprice;
     }
 
-    public int getOrderstatus() {
+    public void setOrderprice(String orderprice) {
+        this.orderprice = orderprice;
+    }
+
+    public String getOrderstatus() {
         return orderstatus;
+    }
+
+    public void setOrderstatus(String orderstatus) {
+        this.orderstatus = orderstatus;
     }
 }
