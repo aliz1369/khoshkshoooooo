@@ -1,5 +1,8 @@
 package com.example.aliz.khoshkshoooooo.adapter;
 
+import android.graphics.Color;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +33,7 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
 
     public class MyViewHolder extends RecyclerView.ViewHolder{
         public TextView ServiceName;
-        public MyViewHolder(View itemView, final OnItemClickListener onItemClickListener) {
+        public MyViewHolder(final View itemView, final OnItemClickListener onItemClickListener) {
             super(itemView);
             ServiceName = itemView.findViewById(R.id.Service_tvName);
             itemView.setOnClickListener(new View.OnClickListener() {
@@ -50,9 +53,17 @@ public class ServiceListAdapter extends RecyclerView.Adapter<ServiceListAdapter.
     }
 
     @Override
-    public void onBindViewHolder(ServiceListAdapter.MyViewHolder holder, int position) {
-        ServiceList serviceList = serviceLists.get(position);
+    public void onBindViewHolder(final ServiceListAdapter.MyViewHolder holder, int position) {
+        final ServiceList serviceList = serviceLists.get(position);
         holder.ServiceName.setText(serviceList.getServiceName());
+        holder.ServiceName.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
+            @Override
+            public void onClick(View view) {
+                serviceList.setServiceSelected(!serviceList.isServiceSelected());
+                holder.itemView.setBackgroundColor(serviceList.isServiceSelected() ? Color.CYAN : Color.WHITE);
+            }
+        });
     }
 
     @Override

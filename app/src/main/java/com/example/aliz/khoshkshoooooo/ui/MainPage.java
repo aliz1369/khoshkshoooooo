@@ -9,6 +9,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 
 import com.example.aliz.khoshkshoooooo.R;
+import com.example.aliz.khoshkshoooooo.database.App;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
@@ -31,6 +32,12 @@ public class MainPage extends AppCompatActivity {
         );
         sharedPreferences = getSharedPreferences("loginInfo",MODE_PRIVATE);
         auth = sharedPreferences.getString("access_token","");
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                App.get().getDB().cartDao().nukeTable();
+            }
+        }).start();
         setupUI();
         getData();
     }

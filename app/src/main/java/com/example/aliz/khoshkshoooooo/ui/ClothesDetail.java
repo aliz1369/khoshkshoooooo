@@ -17,6 +17,7 @@ import com.example.aliz.khoshkshoooooo.R;
 import com.example.aliz.khoshkshoooooo.controller.CartList;
 import com.example.aliz.khoshkshoooooo.controller.ServiceList;
 import com.example.aliz.khoshkshoooooo.adapter.ServiceListAdapter;
+import com.example.aliz.khoshkshoooooo.controller.ServiceSelectedList;
 import com.example.aliz.khoshkshoooooo.database.App;
 import com.example.aliz.khoshkshoooooo.server.HttpCall;
 import com.example.aliz.khoshkshoooooo.server.HttpUtility;
@@ -39,10 +40,12 @@ public class ClothesDetail extends AppCompatActivity {
     private Button addToBasket,updatePrice;
     private RecyclerView services;
     String KindId;
+    String KindName;
     SharedPreferences sharedPreferences;
     String auth;
     ServiceList serviceList;
     List<ServiceList> serviceLists = new ArrayList<>();
+    ArrayList<ServiceSelectedList> selectedService = new ArrayList<>();
     RecyclerView.LayoutManager layoutManager;
     ServiceListAdapter adapter;
     EditText Number;
@@ -60,6 +63,7 @@ public class ClothesDetail extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
         if(extras!=null){
             KindId = extras.getString("KindId");
+            KindName = extras.getString("KindName");
         }
         sharedPreferences = getSharedPreferences("loginInfo",MODE_PRIVATE);
         auth = sharedPreferences.getString("access_token","");
@@ -121,15 +125,26 @@ public class ClothesDetail extends AppCompatActivity {
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
+                        for(int i=0;i<serviceLists.size();i++){
+                            if(serviceLists.get(i).isServiceSelected()){
+                                ServiceSelectedList selectedList = new ServiceSelectedList();
+                                selectedList.setServiceId(serviceLists.get(i).getServiceId());
+                                selectedList.setServiceName(serviceLists.get(i).getServiceName());
+                                selectedService.add(selectedList);
+                            }
+                        }
                         List<CartList> lists = new ArrayList<>();
                         CartList cartList = new CartList();
-                        cartList.setStuff(KindId);
+                        cartList.setStuffId(KindId);
                         cartList.setColor(clothesColor);
+                        cartList.setStuffName(KindName);
+                        cartList.setStuffamount(Number.getText().toString());
                         cartList.setOrderprice(" ");
                         cartList.setOrderstatus("0");
+                        cartList.setServiceList(selectedService);
                         lists.add(cartList);
                         App.get().getDB().cartDao().insertAll(lists);
-                        Intent intent = new Intent(ClothesDetail.this,Basket.class);
+                        Intent intent = new Intent(ClothesDetail.this,ChoiceClothesKind.class);
                         startActivity(intent);
                     }
                 }).start();

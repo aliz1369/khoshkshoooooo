@@ -1,13 +1,12 @@
 package com.example.aliz.khoshkshoooooo.controller;
 
 /**
- * Created by Al!Z on 11/7/2017.
+ * Created by AliZ on 2/3/18.
  */
 
-public class ServiceList {
+public class ServiceSelectedList {
     String ServiceName;
     String ServiceId;
-    boolean ServiceSelected = false;
     public String getServiceName() {
         return ServiceName;
     }
@@ -24,11 +23,4 @@ public class ServiceList {
         ServiceId = serviceId;
     }
 
-    public boolean isServiceSelected() {
-        return ServiceSelected;
-    }
-
-    public void setServiceSelected(boolean serviceSelected) {
-        ServiceSelected = serviceSelected;
-    }
 }

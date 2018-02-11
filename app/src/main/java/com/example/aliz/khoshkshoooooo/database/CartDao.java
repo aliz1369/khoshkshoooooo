@@ -21,4 +21,7 @@ public interface CartDao{
     @Insert
     void insertAll(List<CartList> cartLists);
 
+    @Query("DELETE FROM CartList")
+    void nukeTable();
+
 }

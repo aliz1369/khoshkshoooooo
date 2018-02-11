@@ -36,6 +36,138 @@
         </android.support.v7.widget.Toolbar>
 
     </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/Bill_cvHeader"
+        android:layoutDirection="rtl">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="شماره فاکتور "
+                android:id="@+id/Bill_tvBillNum"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12412413123"
+                android:layout_toEndOf="@+id/Bill_tvBillNum"
+                android:id="@+id/Bill_tvBillNumber"
+                android:layout_toRightOf="@+id/Bill_tvBillNum" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="96/05/22"
+                android:layout_alignParentLeft="true"
+                android:id="@+id/Bill_tvBillDate"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مشتری : "
+                android:id="@+id/Bill_tvBillCustomer"
+                android:layout_below="@+id/Bill_tvBillNum"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="سالاری"
+                android:id="@+id/Bill_tvBillCustomerName"
+                android:layout_toEndOf="@+id/Bill_tvBillCustomer"
+                android:layout_toRightOf="@+id/Bill_tvBillCustomer"
+
+                android:layout_below="@+id/Bill_tvBillNum"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="09153215151"
+                android:id="@+id/Bill_tvBillCustomerPhoneNumber"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@+id/Bill_tvBillDate"
+                android:layout_marginTop="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
+                android:text="بیعانه"
+                android:id="@+id/Bill_tvBillRecieveCache"
+                android:layout_below="@+id/Bill_tvBillCustomer"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="10000 تومان"
+                android:layout_marginTop="5dp"
+                android:id="@+id/Bill_tvBillRecieveCacheAmount"
+                android:layout_toEndOf="@+id/Bill_tvBillRecieveCache"
+                android:layout_toRightOf="@+id/Bill_tvBillRecieveCache"
+                android:layout_below="@+id/Bill_tvBillCustomer"
+                android:layout_marginRight="10dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="30000تومان"
+                android:layout_marginTop="5dp"
+                android:id="@+id/Bill_tvBillTotalAmount"
+                android:layout_alignParentLeft="true"
+                android:layout_below="@id/Bill_tvBillCustomerPhoneNumber"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="مبلغ کل "
+                android:layout_marginTop="5dp"
+                android:id="@+id/Bill_tvBillTotal"
+                android:layout_below="@+id/Bill_tvBillCustomerPhoneNumber"
+                android:layout_toStartOf="@id/Bill_tvBillTotalAmount"
+                android:layout_toLeftOf="@id/Bill_tvBillTotalAmount" />
+
+            <Spinner
+                android:id="@+id/Bill_spBillCondition"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="7dp"
+                android:layout_below="@id/Bill_tvBillTotal"
+                />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Bill_tvBillPickupDatepicker"
+                android:text="../../.."
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/Bill_tvBillTotal"
+                android:layout_alignParentLeft="true"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Bill_tvBillPickupDate"
+                android:text="تاریخ تحویل "
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/Bill_tvBillTotal"
+                android:layout_toStartOf="@id/Bill_tvBillPickupDatepicker"
+                android:layout_toLeftOf="@id/Bill_tvBillPickupDatepicker" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Bill_tvBillCustomerNum"
+                android:text="اشتراک"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/Bill_tvBillPickupDate"
+                android:layout_toStartOf="@+id/Bill_tvBillCustomerNumber"
+                android:layout_toLeftOf="@+id/Bill_tvBillCustomerNumber" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/Bill_tvBillCustomerNumber"
+                android:text="514124"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/Bill_tvBillPickupDate"
+                android:layout_alignParentLeft="true"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
